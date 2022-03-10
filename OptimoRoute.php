@@ -223,8 +223,13 @@ class OptimoRoute {
 			$message = curl_error($request);
 			throw new \Exception($message, (int)$errno);
 		}
-
-		$rbody = json_decode($rbody);
+        
+		$json=$rbody;
+		$rbody = json_decode($json);
+		
+		if(is_null($rbody)) {
+			throw new \Exception( 'OptimoRoute Error Message: ' . $json, (int)4711);
+		}
 
 		// If optimo returned an error, convert it to an exception
 		if($rbody->success == false) {
