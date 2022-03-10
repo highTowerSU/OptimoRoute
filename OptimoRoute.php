@@ -24,6 +24,18 @@ class OptimoRoute {
 	public function __construct(string $apiKey) {
 		$this->apiKey = $apiKey;
 	}
+	
+
+	/**
+	 * @param string|null $date YYYY-MM-DD format, Defaults to today
+	 * @param array $options
+	 * @return \StdObject
+	 * @throws \Exception
+	 */
+	public function getOrders(array $options = []) {
+
+		return $this->makeRequest('get_orders', 'get', $options);
+	}
 
 	/**
 	 * @param array $options
