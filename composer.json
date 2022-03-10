@@ -1,13 +1,18 @@
 {
-    "name": "solutioninnovators/optimoroute",
+    "name": "highTowerSU/optimoroute",
     "description": "A PHP wrapper for OptimoRoute's API",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "license": "MIT",
     "authors": [
         {
             "name": "Mike Spooner",
             "email": "mspooner@solutioninnovators.com",
             "homepage": "https://www.si.design/"
+        },
+        {
+            "name": "Christian Debertshaeuser",
+            "email": "c.debertshaeuser@eMinus.Network",
+            "homepage": "https://www.eMinus.Network/"
         }
     ],
     "require": {
