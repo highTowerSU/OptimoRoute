@@ -246,13 +246,18 @@ class OptimoRoute {
 		// If optimo returned an error, convert it to an exception
 		if($rbody->success == false) {
 			$message = '';
+			$code = 4811;
 			if(isset($rbody->message))
 				$message = $rbody->message;
 			else {
-				$message = 'OptimoRoute Error Code: ' . (int)$rbody->code;
+				if(isset($rbody->code)) {
+					$code=(int)$rbody->code;
+					$message = 'OptimoRoute Error Code: ' . $code;
+				} else {
+					$message = 'OptimoRoute Error 4811';
+				}
 			}
-
-			throw new \Exception($message, (int)$rbody->code);
+			throw new \Exception($message, $code);
 		}
 
 		return $rbody;
